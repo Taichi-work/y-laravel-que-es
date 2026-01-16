@@ -1,6 +1,6 @@
-# 🧠 AI Quiz Generator - クイズ出題アプリ
+# ¿Y laravel que es?  (クイズ出題アプリ)
 
-Googleの最新AI **Gemini 2.5 Flash** を活用し、指定したジャンルのクイズをリアルタイムで自動生成するアプリケーションです。
+GoogleのAI **Gemini 2.5 Flash** を活用し、指定したジャンルのクイズをリアルタイムで自動生成するアプリケーションです。
 
 ![Laravel](https://img.shields.io/badge/Laravel-12-red?logo=laravel)
 ![PHP](https://img.shields.io/badge/PHP-8.5-blue?logo=php)
