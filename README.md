@@ -1,59 +1,117 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🧠 AI Quiz Generator - クイズ出題アプリ
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Googleの最新AI **Gemini 2.5 Flash** を活用し、指定したジャンルのクイズをリアルタイムで自動生成するアプリケーションです。
 
-## About Laravel
+![Laravel](https://img.shields.io/badge/Laravel-12-red?logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8.5-blue?logo=php)
+![Gemini API](https://img.shields.io/badge/Gemini_API-2.5_Flash-4285F4?logo=google-gemini)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.0-06B6D4?logo=tailwindcss)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📋 機能
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### ✅ 実装済み機能
 
-## Learning Laravel
+#### 🤖 AIクイズ生成
+- 指定したジャンルに基づき、Gemini 2.5 Flashが4択問題を自動生成
+- 生成されたクイズの即時出題・採点機能
+- AIによる正解の解説表示
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+#### 📊 クイズ管理・履歴
+- クイズ履歴の一覧表示（Read）
+- 過去の挑戦結果の保存（Create）
+- 履歴の削除機能（Delete）
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+#### 🔐 ユーザー認証
+- Laravel Breezeによるサインアップ・ログイン機能
+- ユーザーごとの学習データ管理
 
-## Laravel Sponsors
+### 🚀 こだわって実装した機能
+- **最新AIモデルの選定**: 
+    - 1.5/2.0系モデルでのAPI Quota制限（limit: 0）を徹底的に検証。2026年現在の最新かつ安定モデルである **Gemini 2.5 Flash** を特定し、実装に成功しました。
+- **技術的課題の解決**:
+    - APIリクエスト時のモデル名不一致やバージョン（v1/v1beta）によるエラーを、`curl` を用いたパケットレベルのデバッグにより解消しました。
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🛠️ 技術スタック
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+| カテゴリ | 技術 |
+|:---|:---|
+| **フレームワーク** | Laravel 12 |
+| **言語** | PHP 8.5 |
+| **AI モデル** | **Gemini 2.5 Flash** |
+| **データベース** | MySQL 8.0 |
+| **フロントエンド** | Blade + Tailwind CSS |
+| **開発環境** | Docker + Laravel Sail |
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🎓 学習目的
 
-## Code of Conduct
+このプロジェクトは以下の学習を目的として作成されました：
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Laravel におけるMVCアーキテクチャの高度な活用
+- ビジネスロジックをControllerに集約しつつ、モデルでのデータ管理を徹底。
+- Bladeテンプレートを用いた動的なUI表示の制御。
 
-## Security Vulnerabilities
+### 外部API（Google Gemini）との非同期・動的連携
+- **Gemini 2.5 Flash** を採用し、ユーザーの入力に応じてリアルタイムでコンテンツを生成する仕組みを構築。
+- APIレスポンス（JSON）のパースとエラーハンドリングの実装。
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### APIのレートリミットやエラーハンドリングの実践的なデバッグ
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🚀 セットアップ
+
+### 📦 必要要件
+- Docker Desktop
+- Git
+
+### ⚙️ インストール手順
+
+#### 1. リポジトリをクローン
+```bash
+git clone [https://github.com/your-username/ai-quiz-generator.git](https://github.com/your-username/ai-quiz-generator.git)
+cd ai-quiz-generator
+
+#### 2. 依存関係をインストール
+Bash
+
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php85-composer:latest \
+    composer install --ignore-platform-reqs
+#### 3. .envファイルを作成
+Bash
+
+cp .env.example .env
+#### 4. APIキーを設定
+.env ファイルを開き、取得したGemini APIキーを設定します。
+
+コード スニペット
+
+GEMINI_API_KEY=your_actual_api_key_here
+#### 5. Sailを起動
+Bash
+
+./vendor/bin/sail up -d
+#### 6. 初期設定（キー生成 & マイグレーション）
+Bash
+
+./vendor/bin/sail artisan key:generate
+./vendor/bin/sail artisan migrate
+#### 7. 設定キャッシュのクリア
+Bash
+
+./vendor/bin/sail artisan config:clear
+#### 8. ブラウザでアクセス
+以下のURLをコピーしてブラウザで開いてください。
+
+Plaintext
+
+http://localhost
